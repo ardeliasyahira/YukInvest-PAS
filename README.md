@@ -1,4 +1,4 @@
-# Proyek Tengah Semester PBP E08: YukInvest
+# Proyek Akhir Semester PBP E08: YukInvest
 
 
 ## Nama Anggota :
@@ -14,7 +14,7 @@
 ---
 
 ## Link Repository:
-https://gitlab.com/fanfavian/proyek-tengah-semester-e08.git
+https://gitlab.com/ardelia.syahira/proyek-akhir-semester
 
 ---
 
