@@ -21,8 +21,10 @@ https://gitlab.com/fanfavian/proyek-tengah-semester-e08.git
 ## Link Herokuapp
 https://yukinvest.herokuapp.com/
 
+---
+
 ## Link APK
-https://yukinvest.herokuapp.com/
+https://drive.google.com/drive/folders/1sGb2UBXYrJa4yCmMY6p7aKGXCmWwTcmN?usp=sharing
 
 ---
 
