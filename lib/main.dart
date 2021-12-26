@@ -92,6 +92,29 @@ class _MyHomePageState extends State<MyHomePage> {
               },
             ),
           ),
+          // SizedBox(height: 5),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget> [
+              Row(
+                children: map<Widget> (
+                  carousels,
+                  (index, image) {
+                    return Container(
+                      alignment: Alignment.center,
+                      height: 6,
+                      width: 6,
+                      margin: EdgeInsets.only(right: 8),
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: _current==index?yukInvestAppBarColor:Colors.grey
+                      ),
+                    );
+                  }
+                ),
+              ),
+            ],
+          )
         ],
       ),
     ),
