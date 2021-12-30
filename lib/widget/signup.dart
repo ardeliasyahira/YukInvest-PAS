@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class VerticalText extends StatefulWidget {
+class SingUp extends StatefulWidget {
   @override
-  _VerticalTextState createState() => _VerticalTextState();
+  _SingUpState createState() => _SingUpState();
 }
 
-class _VerticalTextState extends State<VerticalText> {
+class _SingUpState extends State<SingUp> {
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -13,7 +13,7 @@ class _VerticalTextState extends State<VerticalText> {
       child: RotatedBox(
           quarterTurns: -1,
           child: Text(
-            'Sign in',
+            'Sign up',
             style: TextStyle(
               color: Colors.white,
               fontSize: 38,

@@ -30,7 +30,7 @@ class UserOld extends StatelessWidget {
                     MaterialPageRoute(builder: (context) => LoginPage()));
               },
               child: Text(
-                'Sing in',
+                'Sign in',
                 style: TextStyle(
                   fontSize: 12,
                   color: Colors.white,

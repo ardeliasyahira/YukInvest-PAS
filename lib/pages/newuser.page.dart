@@ -1,30 +1,24 @@
+import 'dart:convert' as convert;
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:pase08/pages/login.page.dart';
+import 'package:pase08/widget/signup.dart';
+import 'package:pase08/widget/textNew.dart';
+import 'package:pase08/loginWidget/userOld.dart';
 import 'package:pase08/common/network_service.dart';
-import 'package:pase08/loginWidget/textLogin.dart';
-import 'package:pase08/loginWidget/verticalText.dart';
-import 'package:pase08/pages/homepage.dart';
+import 'package:provider/src/provider.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({Key? key}) : super(key: key);
-  static const ROUTE_NAME = '/login';
-
+class NewUser extends StatefulWidget {
+  const NewUser({Key? key}) : super(key: key);
+  static const ROUTE_NAME = '/register';
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  _NewUserState createState() => _NewUserState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _NewUserState extends State<NewUser> {
   final _formKey = GlobalKey<FormState>();
-  bool isPasswordVisible = false;
-  void togglePasswordView() {
-    setState(() {
-      isPasswordVisible = !isPasswordVisible;
-    });
-  }
-
   String username = "";
+  String email = "";
   String password1 = "";
-
   @override
   Widget build(BuildContext context) {
     final request = context.watch<NetworkService>();
@@ -43,10 +37,12 @@ class _LoginPageState extends State<LoginPage> {
             children: <Widget>[
               Column(
                 children: <Widget>[
-                  Row(children: <Widget>[
-                    VerticalText(),
-                    TextLogin(),
-                  ]),
+                  Row(
+                    children: <Widget>[
+                      SingUp(),
+                      TextNew(),
+                    ],
+                  ),
                   Padding(
                     padding:
                         const EdgeInsets.only(top: 50, left: 50, right: 50),
@@ -131,42 +127,46 @@ class _LoginPageState extends State<LoginPage> {
                       height: 50,
                       width: MediaQuery.of(context).size.width,
                       decoration: BoxDecoration(
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.blue,
-                            blurRadius:
-                                10.0, // has the effect of softening the shadow
-                            spreadRadius:
-                                1.0, // has the effect of extending the shadow
-                            offset: Offset(
-                              5.0, // horizontal, move right 10
-                              5.0, // vertical, move down 10
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.blue,
+                              blurRadius:
+                                  10.0, // has the effect of softening the shadow
+                              spreadRadius:
+                                  1.0, // has the effect of extending the shadow
+                              offset: Offset(
+                                5.0, // horizontal, move right 10
+                                5.0, // vertical, move down 10
+                              ),
                             ),
-                          ),
-                        ],
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(30),
-                      ),
+                          ],
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(30)),
                       child: FlatButton(
                         onPressed: () async {
-                          final response = await request.login(
-                              "http://127.0.0.1:8000/users/loginflutter", {
-                            'username': username,
-                            'password': password1,
-                          });
-                          if (response['status']) {
-                            ScaffoldMessenger.of(context)
-                                .showSnackBar(const SnackBar(
-                              content: Text("Successfully logged in!"),
-                            ));
-
-                            Navigator.pushNamed(context, "/homepage"); //context, UserOld().ROUTE_NAME);
-                          } else {
-                            ScaffoldMessenger.of(context)
-                                .showSnackBar(const SnackBar(
-                              content:
-                                  Text("An error occured, please try again."),
-                            ));
+                          if (_formKey.currentState!.validate()) {
+                            // Submit to Django server and wait for response
+                            final response = await request.postJson(
+                                "http://127.0.0.1:8000/users/registerflutter",
+                                convert.jsonEncode(<String, String>{
+                                  'username': username,
+                                  'password1': password1,
+                                }));
+                            if (response['status'] == 'success') {
+                              ScaffoldMessenger.of(context)
+                                  .showSnackBar(const SnackBar(
+                                content: Text(
+                                    "Account has been successfully registered!"),
+                              ));
+                              Navigator.pushReplacementNamed(
+                                  context, LoginPage.ROUTE_NAME);
+                            } else {
+                              ScaffoldMessenger.of(context)
+                                  .showSnackBar(const SnackBar(
+                                content:
+                                    Text("An error occured, please try again."),
+                              ));
+                            }
                           }
                         },
                         child: Row(
@@ -189,6 +189,7 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                     ),
                   ),
+                  const UserOld(),
                 ],
               ),
             ],

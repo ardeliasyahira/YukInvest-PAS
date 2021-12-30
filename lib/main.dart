@@ -1,17 +1,20 @@
+import 'package:pase08/pages/homepage.dart';
 import 'package:pase08/pages/login.page.dart';
+import 'package:pase08/pages/newuser.page.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:flutter/foundation.dart' show debugPrint, kIsWeb;
+import 'package:pase08/pages/newuser.page.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter/material.dart';
 import 'package:pase08/common/network_service.dart';
 import 'package:provider/provider.dart';
-
-
-
+import 'package:flutter_swiper/flutter_swiper.dart';
+import 'models/carousel_model.dart';
+import 'widget/navigation_drawer_widget.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 const MaterialColor yukInvestAppBarColor = const MaterialColor(
@@ -30,7 +33,6 @@ const MaterialColor yukInvestAppBarColor = const MaterialColor(
   });
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
 
   // This widget is the root of your application.
   @override
@@ -56,8 +58,12 @@ class MyApp extends StatelessWidget {
             // is not restarted.
             primarySwatch: Colors.blue,
           ),
-          home: const LoginPage(),
-          routes: {"/login": (BuildContext context) => const LoginPage()},
+          home: MyHomePage(),
+          routes: {
+            "/login": (BuildContext context) => const LoginPage(),
+            "/homepage": (BuildContext context) => MyHomePage(),
+            "/register": (BuildContext context) => const NewUser(),
+          },
         ));
   }
 }
