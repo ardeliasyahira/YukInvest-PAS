@@ -1,6 +1,7 @@
 import 'package:pase08/pages/homepage.dart';
 import 'package:pase08/pages/login.page.dart';
 import 'package:pase08/pages/newuser.page.dart';
+import 'package:pase08/pages/admin.page.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:flutter/foundation.dart' show debugPrint, kIsWeb;
@@ -63,6 +64,7 @@ class MyApp extends StatelessWidget {
             "/login": (BuildContext context) => const LoginPage(),
             "/homepage": (BuildContext context) => MyHomePage(),
             "/register": (BuildContext context) => const NewUser(),
+            "/adminpage": (BuildContext context) => const AdminPage(),
           },
         ));
   }
