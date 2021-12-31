@@ -3,6 +3,7 @@ import 'package:pase08/main.dart';
 import 'package:pase08/pages/homepage.dart';
 import 'package:pase08/pages/login.page.dart';
 import 'package:pase08/pages/newuser.page.dart';
+import 'package:pase08/pages/pasar_saham.dart';
 import 'package:provider/provider.dart';
 import 'package:pase08/common/network_service.dart';
 
@@ -28,7 +29,7 @@ class NavigationDrawerWidget extends StatelessWidget {
             buildMenuItem(
               text: 'Pasar Saham',
               icon: Icons.attach_money,
-              // onClicked: () => MaterialPageRoute(),
+              onClicked: () => Navigator.pushNamed(context, PasarSaham.ROUTE_NAME),
             ),
             const SizedBox(height: 16),
             buildMenuItem(
