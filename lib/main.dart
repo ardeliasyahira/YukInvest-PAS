@@ -12,8 +12,13 @@ import 'package:flutter/material.dart';
 import 'package:pase08/common/network_service.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
+import 'package:pase08/screen/feedbacklist.dart';
 import 'models/carousel_model.dart';
 import 'widget/navigation_drawer_widget.dart';
+import 'package:pase08/screen/formfeedback.dart';
+import 'package:pase08/screen/form.dart';
+import 'package:pase08/screen/formulir.dart';
+import 'package:pase08/screen/feedbacklist.dart'; // EXAMPLE OF IMPORTING AUTH LIBRARY
 
 void main() {
   runApp(MyApp());
