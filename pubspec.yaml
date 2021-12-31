@@ -29,6 +29,10 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  indexpendanaan:
+    path: indexpendanaan
+  pendanaan:
+    path: pendanaan
   http: ^0.13.4
   flutter_appauth: ^2.2.0
   flutter_secure_storage: ^5.0.2
