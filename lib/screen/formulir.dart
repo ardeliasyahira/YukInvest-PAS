@@ -1,8 +1,7 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:pase08/main.dart';
+import 'package:pase08/pages/homepage.dart';
 import 'package:pase08/screen/feedbacklist.dart';
-import 'package:pase08/screen/add_data.dart' ;
 import 'package:http/http.dart' as http;
 
 Future<void> createFeedback(
@@ -24,7 +23,7 @@ Future<void> createFeedback(
   if (response.statusCode == 200) {
     // If the server did return a 201 CREATED response,
     // then parse the JSON.
-    print(response.body);
+    // print(response.body);
     // return Feedbackk.fromJson(jsonDecode(response.body));
   } else {
     // If the server did not return a 201 CREATED response,
@@ -85,14 +84,14 @@ class _MyAppState extends State<MyApp> {
           controller: _controller3,
           decoration: const InputDecoration(hintText: 'Give Ratings (1-5)'),
         ),
-        new Padding(padding: new EdgeInsets.only(top: 20.0)),
+        const Padding(padding: EdgeInsets.only(top: 20.0)),
         ElevatedButton(
           onPressed: () {
             setState(() {
               createFeedback(
                   _controller.text, _controller2.text, _controller3.text);
               Navigator.push(context, MaterialPageRoute(builder: (context) {
-                return MyHomePage();
+                return const MyHomePage();
               }));
             });
           },
@@ -104,10 +103,10 @@ class _MyAppState extends State<MyApp> {
           ),
           onPressed: () {
             Navigator.push(context, MaterialPageRoute(builder: (context) {
-              return MyHomePage();
+              return const MyHomePage();
             }));
           },
-          child: Text('Back'),
+          child: const Text('Back'),
         )
       ],
     );

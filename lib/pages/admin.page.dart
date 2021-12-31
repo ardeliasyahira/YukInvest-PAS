@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 
 class AdminPage extends StatefulWidget {
   const AdminPage({Key? key}) : super(key: key);
+  // ignore: constant_identifier_names
   static const ROUTE_NAME = '/adminpage';
   @override
   _AdminPageState createState() => _AdminPageState();
 }
 
 class _AdminPageState extends State<AdminPage> {
-  final _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {

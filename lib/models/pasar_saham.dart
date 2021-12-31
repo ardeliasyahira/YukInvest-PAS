@@ -35,16 +35,17 @@ class Saham {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = this.id;
-    data['merek_bisnis'] = this.merekBisnis;
-    data['domisili'] = this.domisili;
-    data['produk_jasa'] = this.produkJasa;
-    data['pendanaan_dibutuhkan'] = this.pendanaanDibutuhkan;
-    data['deskripsi'] = this.deskripsi;
-    data['logo_usaha'] = this.logoUsaha;
-    data['gambar_usaha'] = this.gambarUsaha;
-    data['ringkasan_perusahaan'] = this.ringkasanPerusahaan;
+    // ignore: prefer_collection_literals
+    final Map<String, dynamic> data = Map<String, dynamic>();
+    data['id'] = id;
+    data['merek_bisnis'] = merekBisnis;
+    data['domisili'] = domisili;
+    data['produk_jasa'] = produkJasa;
+    data['pendanaan_dibutuhkan'] = pendanaanDibutuhkan;
+    data['deskripsi'] = deskripsi;
+    data['logo_usaha'] = logoUsaha;
+    data['gambar_usaha'] = gambarUsaha;
+    data['ringkasan_perusahaan'] = ringkasanPerusahaan;
     return data;
   }
 }

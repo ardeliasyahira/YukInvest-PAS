@@ -2,14 +2,14 @@ import 'dart:convert';
 import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
-import 'package:pase08/common/network_service.dart';
 import 'package:pase08/models/pasar_saham.dart';
 import 'package:pase08/pages/pasar_saham_detail.dart';
-import 'package:provider/src/provider.dart';
 import 'package:http/http.dart' as http;
 
 class PasarSaham extends StatefulWidget {
   static const ROUTE_NAME = '/pasarSaham';
+
+  const PasarSaham({Key? key}) : super(key: key);
 
   @override
   _PasarSahamState createState() => _PasarSahamState();
@@ -46,21 +46,21 @@ class _PasarSahamState extends State<PasarSaham> {
   @override
   Widget build(BuildContext context) {
     if (sahams == null) {
-      return new Scaffold(
-        appBar: new AppBar(
-          title: new Text("Loading..."),
+      return Scaffold(
+        appBar: AppBar(
+          title: const Text("Loading..."),
         ),
       );
     } else {
       return Scaffold(
         appBar: AppBar(
-          title: Text('Pasar Saham'),
+          title: const Text('Pasar Saham'),
         ),
         body: ListView.builder(
           itemCount: sahams!.length,
           itemBuilder: (context, index) {
             return Container(
-              padding: EdgeInsets.all(16),
+              padding: const EdgeInsets.all(16),
               child: GestureDetector(
                 onTap: () => Navigator.push(
                     context,
@@ -84,25 +84,25 @@ class _PasarSahamState extends State<PasarSaham> {
                           children: <Widget>[
                             Text(
                               sahams?[index].merekBisnis ?? '',
-                              style: new TextStyle(
+                              style: const TextStyle(
                                 fontSize: 16.0,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 10.0,
                             ),
-                            Text(
+                            const Text(
                               'Nilai Bisnis',
                               style: TextStyle(
                                 fontSize: 12.0,
                               ),
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 8.0,
                             ),
                             Text('Rp${sahams?[index].pendanaanDibutuhkan ?? 0}'),
-                            SizedBox(
+                            const SizedBox(
                               height: 8.0,
                             ),
                           ],

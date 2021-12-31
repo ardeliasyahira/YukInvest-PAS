@@ -1,7 +1,6 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:pase08/main.dart';
-import 'package:pase08/screen/add_data.dart' ;
+import 'package:pase08/pages/homepage.dart';
 import 'package:pase08/screen/feedbacklist.dart';
 import 'package:http/http.dart' as http;
 
@@ -45,9 +44,8 @@ Future<Feedbackk> createFeedback(String pengirim,String message,String ratings) 
 }
 
 class FeedbackForm extends StatefulWidget {
-  FeedbackForm({Key? key}) : super(key: key);
+  const FeedbackForm({Key? key}) : super(key: key);
   
-  final TextEditingController _controller = TextEditingController();
 
   @override
   _FeedbackFormState createState() => _FeedbackFormState();
@@ -62,6 +60,8 @@ class _FeedbackFormState extends State<FeedbackForm> {
 
   final formKey = GlobalKey<FormState>();
   Future<Feedbackk>? _futureFeedback;
+
+  get constst => null;
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
@@ -104,12 +104,12 @@ class _FeedbackFormState extends State<FeedbackForm> {
               hintText: "Enter the feedback",
             ),
           ),
-          new Row(
-                children: <Widget>[
-                  new Text("Berikan rating untuk aplikasi ini")
+          Row(
+                children: const <Widget>[
+                  Text("Berikan rating untuk aplikasi ini")
                 ],
               ),
-              new DropdownButton<String>(
+              DropdownButton<String>(
                 value: _ratings,
                 icon: const Icon(Icons.arrow_downward),
                 elevation: 16,
@@ -179,10 +179,10 @@ class _FeedbackFormState extends State<FeedbackForm> {
                 ),
                 onPressed: () {
                   Navigator.push(context, MaterialPageRoute(builder: (context) {
-                    return MyHomePage();
+                    return const MyHomePage();
                   }));
                 },
-                child: Text('Back'),
+                child: const Text('Back'),
               )
         ]),
       ),

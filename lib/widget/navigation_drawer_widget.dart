@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:pase08/main.dart';
 import 'package:pase08/pages/homepage.dart';
-import 'package:pase08/pages/login.page.dart';
-import 'package:pase08/pages/newuser.page.dart';
 import 'package:pase08/pages/pasar_saham.dart';
 import 'package:provider/provider.dart';
 import 'package:pase08/common/network_service.dart';
 
 class NavigationDrawerWidget extends StatelessWidget {
-  final padding = EdgeInsets.symmetric(horizontal: 20);
+  final padding = const EdgeInsets.symmetric(horizontal: 20);
+
+  const NavigationDrawerWidget({Key? key}) : super(key: key);
 
   BuildContext? get context => null;
 
@@ -22,7 +22,7 @@ class NavigationDrawerWidget extends StatelessWidget {
           padding: padding,
           children: <Widget>[
             const SizedBox(height: 24),
-            Text('YukInvest!',
+            const Text('YukInvest!',
                 style: TextStyle(
                     fontSize: 24,
                     fontWeight: FontWeight.bold,
@@ -58,7 +58,7 @@ class NavigationDrawerWidget extends StatelessWidget {
             ),
             // Section Divider
             const SizedBox(height: 24),
-            Divider(color: yukInvestAppBarColor),
+            const Divider(color: yukInvestAppBarColor),
 
             const SizedBox(height: 24),
             buildMenuItem(
@@ -85,7 +85,7 @@ class NavigationDrawerWidget extends StatelessWidget {
                         Navigator.pushReplacement(
                           context,
                           MaterialPageRoute<void>(
-                            builder: (BuildContext context) => MyHomePage(),
+                            builder: (BuildContext context) => const MyHomePage(),
                           ),
                         );
                       } else {
@@ -111,11 +111,11 @@ class NavigationDrawerWidget extends StatelessWidget {
     required IconData icon,
     VoidCallback? onClicked,
   }) {
-    final color = yukInvestAppBarColor;
+    const color = yukInvestAppBarColor;
 
     return ListTile(
       leading: Icon(icon, color: color),
-      title: Text(text, style: TextStyle(color: color)),
+      title: Text(text, style: const TextStyle(color: color)),
       hoverColor: Colors.grey[300],
       // onTap: () => {
       //     Navigator.pushReplacement(

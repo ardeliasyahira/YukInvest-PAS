@@ -3,7 +3,6 @@ import 'package:provider/provider.dart';
 import 'package:pase08/common/network_service.dart';
 import 'package:pase08/loginWidget/textLogin.dart';
 import 'package:pase08/loginWidget/verticalText.dart';
-import 'package:pase08/pages/homepage.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -28,12 +27,11 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     final request = context.watch<NetworkService>();
-    Size size = MediaQuery.of(context).size;
     return Form(
       key: _formKey,
       child: Scaffold(
         body: Container(
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             gradient: LinearGradient(
                 begin: Alignment.topRight,
                 end: Alignment.bottomLeft,
@@ -43,7 +41,7 @@ class _LoginPageState extends State<LoginPage> {
             children: <Widget>[
               Column(
                 children: <Widget>[
-                  Row(children: <Widget>[
+                  Row(children: const <Widget>[
                     VerticalText(),
                     TextLogin(),
                   ]),
@@ -54,10 +52,10 @@ class _LoginPageState extends State<LoginPage> {
                       height: 60,
                       width: MediaQuery.of(context).size.width,
                       child: TextFormField(
-                        style: TextStyle(
+                        style: const TextStyle(
                           color: Colors.white,
                         ),
-                        decoration: InputDecoration(
+                        decoration: const InputDecoration(
                           border: InputBorder.none,
                           fillColor: Colors.lightBlueAccent,
                           labelText: 'Name',
@@ -92,11 +90,11 @@ class _LoginPageState extends State<LoginPage> {
                       height: 60,
                       width: MediaQuery.of(context).size.width,
                       child: TextFormField(
-                        style: TextStyle(
+                        style: const TextStyle(
                           color: Colors.white,
                         ),
                         obscureText: true,
-                        decoration: InputDecoration(
+                        decoration: const InputDecoration(
                           border: InputBorder.none,
                           labelText: 'Password',
                           labelStyle: TextStyle(
@@ -131,7 +129,7 @@ class _LoginPageState extends State<LoginPage> {
                       height: 50,
                       width: MediaQuery.of(context).size.width,
                       decoration: BoxDecoration(
-                        boxShadow: [
+                        boxShadow: const [
                           BoxShadow(
                             color: Colors.blue,
                             blurRadius:
@@ -147,7 +145,7 @@ class _LoginPageState extends State<LoginPage> {
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(30),
                       ),
-                      child: FlatButton(
+                      child: TextButton(
                         onPressed: () async {
                           final response = await request.login(
                               "http://127.0.0.1:8000/users/loginflutter", {
@@ -171,7 +169,7 @@ class _LoginPageState extends State<LoginPage> {
                         },
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[
+                          children: const <Widget>[
                             Text(
                               'OK',
                               style: TextStyle(

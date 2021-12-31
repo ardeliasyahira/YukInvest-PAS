@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class TextNew extends StatefulWidget {
+  const TextNew({Key? key}) : super(key: key);
+
   @override
   _TextNewState createState() => _TextNewState();
 }
@@ -19,7 +21,7 @@ class _TextNewState extends State<TextNew> {
             Container(
               height: 60,
             ),
-            Center(
+            const Center(
               child: Text(
                 'Ayo bergabung dengan YukInvest!',
                 style: TextStyle(

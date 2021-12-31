@@ -4,6 +4,7 @@ import 'package:pase08/pages/login.page.dart';
 class UserOld extends StatelessWidget {
 
   const UserOld({Key? key}) : super(key: key);
+  // ignore: constant_identifier_names
   static const ROUTE_NAME = '/user';
   
   @override
@@ -16,20 +17,21 @@ class UserOld extends StatelessWidget {
         height: 20,
         child: Row(
           children: <Widget>[
-            Text(
+            const Text(
               'Have we met before?',
               style: TextStyle(
                 fontSize: 12,
                 color: Colors.white70,
               ),
             ),
+            // ignore: deprecated_member_use
             FlatButton(
-              padding: EdgeInsets.all(0),
+              padding: const EdgeInsets.all(0),
               onPressed: () {
                 Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => LoginPage()));
+                    MaterialPageRoute(builder: (context) => const LoginPage()));
               },
-              child: Text(
+              child: const Text(
                 'Sign in',
                 style: TextStyle(
                   fontSize: 12,

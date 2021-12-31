@@ -5,6 +5,7 @@ import 'package:pase08/widget/signup.dart';
 import 'package:pase08/widget/textNew.dart';
 import 'package:pase08/loginWidget/userOld.dart';
 import 'package:pase08/common/network_service.dart';
+// ignore: implementation_imports
 import 'package:provider/src/provider.dart';
 
 class NewUser extends StatefulWidget {
@@ -22,12 +23,11 @@ class _NewUserState extends State<NewUser> {
   @override
   Widget build(BuildContext context) {
     final request = context.watch<NetworkService>();
-    Size size = MediaQuery.of(context).size;
     return Form(
       key: _formKey,
       child: Scaffold(
         body: Container(
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             gradient: LinearGradient(
                 begin: Alignment.topRight,
                 end: Alignment.bottomLeft,
@@ -38,7 +38,7 @@ class _NewUserState extends State<NewUser> {
               Column(
                 children: <Widget>[
                   Row(
-                    children: <Widget>[
+                    children: const <Widget>[
                       SingUp(),
                       TextNew(),
                     ],
@@ -50,10 +50,10 @@ class _NewUserState extends State<NewUser> {
                       height: 60,
                       width: MediaQuery.of(context).size.width,
                       child: TextFormField(
-                        style: TextStyle(
+                        style: const TextStyle(
                           color: Colors.white,
                         ),
-                        decoration: InputDecoration(
+                        decoration: const InputDecoration(
                           border: InputBorder.none,
                           fillColor: Colors.lightBlueAccent,
                           labelText: 'Name',
@@ -88,11 +88,11 @@ class _NewUserState extends State<NewUser> {
                       height: 60,
                       width: MediaQuery.of(context).size.width,
                       child: TextFormField(
-                        style: TextStyle(
+                        style: const TextStyle(
                           color: Colors.white,
                         ),
                         obscureText: true,
-                        decoration: InputDecoration(
+                        decoration: const InputDecoration(
                           border: InputBorder.none,
                           labelText: 'Password',
                           labelStyle: TextStyle(
@@ -127,7 +127,7 @@ class _NewUserState extends State<NewUser> {
                       height: 50,
                       width: MediaQuery.of(context).size.width,
                       decoration: BoxDecoration(
-                          boxShadow: [
+                          boxShadow: const [
                             BoxShadow(
                               color: Colors.blue,
                               blurRadius:
@@ -142,7 +142,7 @@ class _NewUserState extends State<NewUser> {
                           ],
                           color: Colors.white,
                           borderRadius: BorderRadius.circular(30)),
-                      child: FlatButton(
+                      child: TextButton(
                         onPressed: () async {
                           if (_formKey.currentState!.validate()) {
                             // Submit to Django server and wait for response
@@ -171,7 +171,7 @@ class _NewUserState extends State<NewUser> {
                         },
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[
+                          children: const <Widget>[
                             Text(
                               'OK',
                               style: TextStyle(
