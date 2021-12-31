@@ -4,6 +4,8 @@ import 'package:pase08/main.dart';
 class NavigationDrawerWidget extends StatelessWidget {
   final padding = EdgeInsets.symmetric(horizontal: 20);
 
+  BuildContext? get context => null;
+
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -23,19 +25,35 @@ class NavigationDrawerWidget extends StatelessWidget {
             buildMenuItem(
               text: 'Pasar Saham',
               icon: Icons.attach_money,
-              // onClicked: () => MaterialPageRoute(),
+              // onClicked: () => {
+              //   Navigator.pushReplacement(
+              //     context, 
+              //     MaterialPageRoute(
+              //       builder: (context) => const Sesuatu()));
+              // }
             ),
             const SizedBox(height: 16),
             buildMenuItem(
               text: 'Daftar UMKM',
               icon: Icons.store,
-              // onClicked: () => MaterialPageRoute(),
+              // onClicked: () => {
+              //   Navigator.pushReplacement(
+              //     context, 
+              //     MaterialPageRoute(
+              //       builder: (context) => const Sesuatu()));
+              // }
             ),
             const SizedBox(height: 16),
             buildMenuItem(
               text: 'Pendanaan',
               icon: Icons.money_rounded,
-              // onClicked: () => MaterialPageRoute(),
+              // onClicked: () => {
+              //   Navigator.pushReplacement(
+              //     context, 
+              //     MaterialPageRoute(
+              //       builder: (context) => const Sesuatu()));
+              // }
+              
             ),
             // Section Divider
             const SizedBox(height: 24),
@@ -45,13 +63,23 @@ class NavigationDrawerWidget extends StatelessWidget {
             buildMenuItem(
               text: 'Masuk',
               icon: Icons.person,
-              // onClicked: () => MaterialPageRoute(),
+              // onClicked: () => {
+              //   Navigator.pushReplacement(
+              //     context, 
+              //     MaterialPageRoute(
+              //       builder: (context) => const Sesuatu()));
+              // }
             ),
             const SizedBox(height: 16),
             buildMenuItem(
               text: 'Daftar',
               icon: Icons.person_add_alt_rounded,
-              // onClicked: () => MaterialPageRoute(),
+              // onClicked: () => {
+              //   Navigator.pushReplacement(
+              //     context, 
+              //     MaterialPageRoute(
+              //       builder: (context) => const Sesuatu()));
+              // }
             ),
           ],
         ),
@@ -70,7 +98,12 @@ class NavigationDrawerWidget extends StatelessWidget {
       leading: Icon(icon, color: color),
       title: Text(text, style: TextStyle(color: color)),
       hoverColor: Colors.grey[300],
-      onTap : onClicked,  // Nanti link ke link yang kita mau
+      // onTap: () => {
+      //     Navigator.pushReplacement(
+      //       context!, 
+      //       MaterialPageRoute(
+      //         builder: (context) => const Sesuatu()));
+      //   }
     );
   }
 }

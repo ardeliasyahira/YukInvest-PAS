@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
+import 'package:pase08/screen/feedbacklist.dart';
 import 'models/carousel_model.dart';
 import 'widget/navigation_drawer_widget.dart';
+import 'package:pase08/screen/formfeedback.dart';
+import 'package:pase08/screen/form.dart';
+import 'package:pase08/screen/formulir.dart';
+import 'package:pase08/screen/feedbacklist.dart'; // EXAMPLE OF IMPORTING AUTH LIBRARY
 
 void main() {
   runApp(MyApp());
@@ -57,7 +62,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) => Scaffold(
     drawer: NavigationDrawerWidget(),
     appBar: AppBar(
-      title: Text('YukInvest!'),
+      title: Text('Yuk Invest!'),
       elevation: 0,
     ),
     body: Container(
@@ -93,6 +98,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
           ),
           // SizedBox(height: 5),
+          
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget> [
@@ -114,7 +120,381 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ),
             ],
-          )
+          ),
+          // Section widget
+          // Padding (
+          //   padding: EdgeInsets.only(left: 16, top: 24),
+          //   child: Text(
+          //     'Yuk Invest!'
+          //   ),
+          // )
+          SizedBox(
+                  height: 16,
+                ),
+          Container(
+            height: 144,
+            margin: EdgeInsets.only(left: 16, right: 16),
+            child: Column(
+              children: <Widget>[
+                Row(
+                  children: <Widget>[
+                    Expanded(
+                      child: Container(
+                        margin: EdgeInsets.only(right: 8),
+                        padding: EdgeInsets.only(left: 16),
+                        height: 64,
+                        decoration: BoxDecoration(
+                          color: Color.fromRGBO(187, 198, 230, 1),
+                          borderRadius: BorderRadius.circular(12),
+                          border: Border.all(color: Colors.black, width: 1),
+                        ),
+                        child: Row(
+                          children: <Widget>[
+                            Image.asset(
+                              'assets/images/bobaa.jpeg',
+                              height: 60,
+                              width: 80,
+                            ),
+                            Padding(
+                              padding: EdgeInsets.only(left: 16),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: <Widget>[
+                                  Text(
+                                    'StreetBoba',
+                                    style: TextStyle(fontSize: 18, 
+                                    fontWeight:FontWeight.bold, 
+                                    color: yukInvestAppBarColor
+                                    )
+                                  ),
+                                  Text(
+                                    'Senayan City',
+                                    style: TextStyle(fontSize: 12, 
+                                    color: Colors.black,
+                                    )
+                                  )
+                                ],
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+                    Expanded(
+                      child: Container(
+                        margin: EdgeInsets.only(left: 8),
+                        padding: EdgeInsets.only(left: 16),
+                        height: 64,
+                        decoration: BoxDecoration(
+                          color: Color.fromRGBO(187, 198, 230, 1),
+                          borderRadius: BorderRadius.circular(12),
+                          border: Border.all(color: Colors.black, width: 1),
+                        ),
+                        child: Row(
+                          children: <Widget>[
+                            Image.asset(
+                              'assets/images/bobaa.jpeg',
+                              height: 60,
+                              width: 80,
+                            ),
+                            Padding(
+                              padding: EdgeInsets.only(left: 16),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: <Widget>[
+                                  Text(
+                                    'StreetBoba',
+                                    style: TextStyle(fontSize: 18, 
+                                    fontWeight:FontWeight.bold, 
+                                    color: yukInvestAppBarColor
+                                    )
+                                  ),
+                                  Text(
+                                    'Plaza Senayan',
+                                    style: TextStyle(fontSize: 12, 
+                                    color: Colors.black,
+                                    )                                    
+                                  )
+                                ],
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                    )
+                  ],
+                ),
+                SizedBox(
+                  height: 16,
+                ),
+                Row(
+                  children: <Widget>[
+                    Expanded(
+                      child: Container(
+                        margin: EdgeInsets.only(right: 8),
+                        padding: EdgeInsets.only(left: 16),
+                        height: 64,
+                        decoration: BoxDecoration(
+                          color: Color.fromRGBO(187, 198, 230, 1),
+                          borderRadius: BorderRadius.circular(12),
+                          border: Border.all(color: Colors.black, width: 1),
+                        ),
+                        child: Row(
+                          children: <Widget>[
+                            Image.asset(
+                              'assets/images/bobaa.jpeg',
+                              height: 60,
+                              width: 80,
+                            ),
+                            Padding(
+                              padding: EdgeInsets.only(left: 16),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: <Widget>[
+                                  Text(
+                                    'StreetBoba',
+                                    style: TextStyle(fontSize: 18, 
+                                    fontWeight:FontWeight.bold, 
+                                    color: yukInvestAppBarColor
+                                    )
+                                  ),
+                                  Text(
+                                    'Gandaria City',
+                                    style: TextStyle(fontSize: 12, 
+                                    color: Colors.black,
+                                    )
+                                  )
+                                ],
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+                    Expanded(
+                        child: Container(
+                          margin: EdgeInsets.only(left: 8),
+                          padding: EdgeInsets.only(left: 16),
+                          height: 64,
+                          decoration: BoxDecoration(
+                            color: Color.fromRGBO(187, 198, 230, 1),
+                            borderRadius: BorderRadius.circular(12),
+                            border: Border.all(color: Colors.black, width: 1),
+                          ),
+                          child: Row(
+                            children: <Widget>[
+                              Image.asset(
+                                'assets/images/bobaa.jpeg',
+                                height: 60,
+                                width: 80,
+                              ),
+                              Padding(
+                                padding: EdgeInsets.only(left: 16),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: <Widget>[
+                                    Text(
+                                      'StreetBoba',
+                                      style: TextStyle(fontSize: 18, 
+                                      fontWeight:FontWeight.bold, 
+                                      color: yukInvestAppBarColor
+                                      )
+                                    ),
+                                    Text(
+                                      'Plaza Indonesia',
+                                      style: TextStyle(fontSize: 12, 
+                                        color: Colors.black,
+                                        )
+                                    )
+                                  ],
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                      )
+                  ],
+                ),
+              ],
+            ),
+          ),
+          SizedBox(
+                  height: 16,
+                ),
+          Center(
+            child: Text(
+            "Investasi UMKM",
+            style: TextStyle(fontSize: 18, 
+                      fontWeight:FontWeight.bold, 
+                      color: Color.fromRGBO(20, 39, 155, 1),
+            )
+          ),
+          ),
+          Container(
+            margin: EdgeInsets.symmetric(vertical: 20),
+            padding: EdgeInsets.all(10),
+            height: 80,
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(13),
+              boxShadow: [
+                BoxShadow(
+                  offset: Offset(0, 17),
+                  blurRadius: 23,
+                  spreadRadius: -13,
+                  color: Colors.black,
+                ),
+              ],
+            ),
+            child: Row(
+              children: <Widget>[
+                Image.asset(
+                  'assets/images/investasi.png',
+                  height: 60,
+                  width: 80,
+                ),
+                SizedBox(width: 20),
+                Expanded(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      TextButton(
+                        style: ButtonStyle(
+                          foregroundColor:
+                              MaterialStateProperty.all<Color>(Colors.black),
+                        ),
+                        onPressed: () {
+                          Navigator.push(context,
+                              MaterialPageRoute(builder: (context) {
+                            return MyApp() ;
+                          }));
+                        },
+                        child: Text('Lihat Investasi UMKM'),
+                      ),
+                      // Text(
+                      //   "Lihat Investasi UMKM",
+                      //   style: TextStyle(fontSize: 14, 
+                      //     color: Colors.black,
+                      //     )
+                        
+                      // ),
+                      Text(
+                        "Lihat daftar investasi bisnis yang sedang berlangsung dan temukan peluang untuk berinvestasi hari ini.",
+                        style: TextStyle(fontSize: 10, 
+                          color: Colors.black,
+                          ))
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Center(
+            child: Text(
+            "Daftar UMKM",
+            style: TextStyle(fontSize: 18, 
+                      fontWeight:FontWeight.bold, 
+                      color: Color.fromRGBO(20, 39, 155, 1),
+            )
+          ),
+          ),
+          Container(
+            margin: EdgeInsets.symmetric(vertical: 20),
+            padding: EdgeInsets.all(10),
+            height: 80,
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(13),
+              boxShadow: [
+                BoxShadow(
+                  offset: Offset(0, 17),
+                  blurRadius: 23,
+                  spreadRadius: -13,
+                  color: Colors.black,
+                ),
+              ],
+            ),
+            child: Row(
+              children: <Widget>[
+                Image.asset(
+                  'assets/images/investasi.png',
+                  height: 60,
+                  width: 80,
+                ),
+                SizedBox(width: 20),
+                Expanded(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      TextButton(
+                        style: ButtonStyle(
+                          foregroundColor:
+                              MaterialStateProperty.all<Color>(Colors.black),
+                        ),
+                        onPressed: () {
+                          Navigator.push(context,
+                              MaterialPageRoute(builder: (context) {
+                            return MyApp() ;
+                          }));
+                        },
+                        child: Text('Lihat Daftar UMKM'),
+                      ),
+                      // Text(
+                      //   "Lihat Daftar UMKM",
+                      //   style: TextStyle(fontSize: 14, 
+                      //     color: Colors.black,
+                      //     ),
+                      //   onTap: () {
+                      //     Navigator.push(context,
+                      //         MaterialPageRoute(builder: (context) {
+                      //       return Sesuai();
+                      //     }));
+                      //   },
+                      // ),
+                      Text(
+                        "Tentukan pilihan bisnis-bisnis yang sesuai dengan keinginan Anda!",
+                        style: TextStyle(fontSize: 10, 
+                          color: Colors.black,
+                          )
+                      )
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+          TextButton(
+                  style: ButtonStyle(
+                    foregroundColor:
+                        MaterialStateProperty.all<Color>(Colors.blue),
+                  ),
+                  onPressed: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) {
+                      return MyApp() ;
+                    }));
+                  },
+                  child: Text('Leave Us Feedback'),
+                ),
+            TextButton(
+                  style: ButtonStyle(
+                    foregroundColor:
+                        MaterialStateProperty.all<Color>(Colors.blue),
+                  ),
+                  onPressed: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) {
+                      return MyFeedbackPage();
+                    }));
+                  },
+                  child: Text('See feedbacks'),
+                ),
         ],
       ),
     ),
