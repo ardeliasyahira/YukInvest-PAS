@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pase08/main.dart';
 import 'package:pase08/pages/homepage.dart';
 import 'package:pase08/pages/pasar_saham.dart';
+import 'package:pendanaan/screens/view_pendanaan.dart';
 import 'package:provider/provider.dart';
 import 'package:pase08/common/network_service.dart';
 
@@ -31,7 +32,8 @@ class NavigationDrawerWidget extends StatelessWidget {
             buildMenuItem(
               text: 'Pasar Saham',
               icon: Icons.attach_money,
-              onClicked: () => Navigator.pushNamed(context, PasarSaham.ROUTE_NAME),
+              onClicked: () =>
+                  Navigator.pushNamed(context, PasarSaham.ROUTE_NAME),
             ),
             const SizedBox(height: 16),
             buildMenuItem(
@@ -39,23 +41,22 @@ class NavigationDrawerWidget extends StatelessWidget {
               icon: Icons.store,
               // onClicked: () => {
               //   Navigator.pushReplacement(
-              //     context, 
+              //     context,
               //     MaterialPageRoute(
               //       builder: (context) => const Sesuatu()));
               // }
             ),
             const SizedBox(height: 16),
             buildMenuItem(
-              text: 'Pendanaan',
-              icon: Icons.money_rounded,
-              // onClicked: () => {
-              //   Navigator.pushReplacement(
-              //     context, 
-              //     MaterialPageRoute(
-              //       builder: (context) => const Sesuatu()));
-              // }
-              
-            ),
+                text: 'Pendanaan',
+                icon: Icons.money_rounded,
+                onClicked: () => {
+                      Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const PendanaanHomePage()))
+                    }),
+
             // Section Divider
             const SizedBox(height: 24),
             const Divider(color: yukInvestAppBarColor),
@@ -85,7 +86,8 @@ class NavigationDrawerWidget extends StatelessWidget {
                         Navigator.pushReplacement(
                           context,
                           MaterialPageRoute<void>(
-                            builder: (BuildContext context) => const MyHomePage(),
+                            builder: (BuildContext context) =>
+                                const MyHomePage(),
                           ),
                         );
                       } else {
@@ -119,7 +121,7 @@ class NavigationDrawerWidget extends StatelessWidget {
       hoverColor: Colors.grey[300],
       // onTap: () => {
       //     Navigator.pushReplacement(
-      //       context!, 
+      //       context!,
       //       MaterialPageRoute(
       //         builder: (context) => const Sesuatu()));
       //   }
