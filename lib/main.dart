@@ -1,5 +1,20 @@
+import 'package:pase08/pages/homepage.dart';
+import 'package:pase08/pages/login.page.dart';
+import 'package:pase08/pages/newuser.page.dart';
+import 'package:pase08/pages/admin.page.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
+import 'package:flutter/foundation.dart' show debugPrint, kIsWeb;
+import 'package:pase08/pages/newuser.page.dart';
+import 'package:pase08/pages/pasar_saham.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter/material.dart';
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+import 'package:pase08/common/network_service.dart';
+import 'package:provider/provider.dart';
+>>>>>>> e267f34b0ea080d980551a8efb16bf36eb581dc8
 import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:pase08/screen/feedbacklist.dart';
 import 'models/carousel_model.dart';
@@ -42,6 +57,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+<<<<<<< HEAD
     return MaterialApp(
       title: 'YukInvest',
       theme: ThemeData(
@@ -91,457 +107,41 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
 <<<<<<< HEAD
   int _current = 0;
+=======
+    return Provider(
+        create: (_) {
+          NetworkService request = NetworkService();
+>>>>>>> e267f34b0ea080d980551a8efb16bf36eb581dc8
 
-  List<T> map<T>(List list, Function handler) {
-    List<T> result = [];
-    for (var i = 0; i < list.length; i++) {
-      result.add(handler(i, list[i]));
-    }
-    return result;
+          return request;
+        },
+        child: MaterialApp(
+          title: 'YukInvest',
+          debugShowCheckedModeBanner: false,
+          theme: ThemeData(
+            // This is the theme of your application.
+            //
+            // Try running your application with "flutter run". You'll see the
+            // application has a blue toolbar. Then, without quitting the app, try
+            // changing the primarySwatch below to Colors.green and then invoke
+            // "hot reload" (press "r" in the console where you ran "flutter run",
+            // or simply save your changes to "hot reload" in a Flutter IDE).
+            // Notice that the counter didn't reset back to zero; the application
+            // is not restarted.
+            primarySwatch: Colors.blue,
+          ),
+          home: MyHomePage(),
+          routes: {
+            "/login": (BuildContext context) => const LoginPage(),
+            "/homepage": (BuildContext context) => MyHomePage(),
+            "/register": (BuildContext context) => const NewUser(),
+            "/adminpage": (BuildContext context) => const AdminPage(),
+            "/pasarSaham": (BuildContext context) => PasarSaham(),
+          },
+        ));
   }
-
-  @override
-  Widget build(BuildContext context) => Scaffold(
-    drawer: NavigationDrawerWidget(),
-    appBar: AppBar(
-      title: Text('Yuk Invest!'),
-      elevation: 0,
-    ),
-    body: Container(
-      child: ListView(
-        physics: ClampingScrollPhysics(),
-        children: <Widget>[
-          // Carousel Section
-          Container(
-            alignment: Alignment.centerLeft,
-            margin: EdgeInsets.only(left: 16, right: 16),
-            width: MediaQuery.of(context).size.width,
-            height: 190,
-            padding: EdgeInsets.all(24),
-            child: Swiper(
-              onIndexChanged: (index) {
-                setState(() {
-                  _current = index;
-                });
-              },
-              autoplay: true,
-              layout: SwiperLayout.DEFAULT,
-              itemCount: carousels.length,
-              itemBuilder: (BuildContext context, index){
-                return Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(8),
-                    image: DecorationImage(
-                      image: AssetImage(carousels[index].image),
-                      fit: BoxFit.cover),
-                    ),
-                  );
-              },
-            ),
-          ),
-          // SizedBox(height: 5),
-          
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget> [
-              Row(
-                children: map<Widget> (
-                  carousels,
-                  (index, image) {
-                    return Container(
-                      alignment: Alignment.center,
-                      height: 6,
-                      width: 6,
-                      margin: EdgeInsets.only(right: 8),
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: _current==index?yukInvestAppBarColor:Colors.grey
-                      ),
-                    );
-                  }
-                ),
-              ),
-            ],
-          ),
-          // Section widget
-          // Padding (
-          //   padding: EdgeInsets.only(left: 16, top: 24),
-          //   child: Text(
-          //     'Yuk Invest!'
-          //   ),
-          // )
-          SizedBox(
-                  height: 16,
-                ),
-          Container(
-            height: 144,
-            margin: EdgeInsets.only(left: 16, right: 16),
-            child: Column(
-              children: <Widget>[
-                Row(
-                  children: <Widget>[
-                    Expanded(
-                      child: Container(
-                        margin: EdgeInsets.only(right: 8),
-                        padding: EdgeInsets.only(left: 16),
-                        height: 64,
-                        decoration: BoxDecoration(
-                          color: Color.fromRGBO(187, 198, 230, 1),
-                          borderRadius: BorderRadius.circular(12),
-                          border: Border.all(color: Colors.black, width: 1),
-                        ),
-                        child: Row(
-                          children: <Widget>[
-                            Image.asset(
-                              'assets/images/bobaa.jpeg',
-                              height: 60,
-                              width: 80,
-                            ),
-                            Padding(
-                              padding: EdgeInsets.only(left: 16),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: <Widget>[
-                                  Text(
-                                    'StreetBoba',
-                                    style: TextStyle(fontSize: 18, 
-                                    fontWeight:FontWeight.bold, 
-                                    color: yukInvestAppBarColor
-                                    )
-                                  ),
-                                  Text(
-                                    'Senayan City',
-                                    style: TextStyle(fontSize: 12, 
-                                    color: Colors.black,
-                                    )
-                                  )
-                                ],
-                              ),
-                            )
-                          ],
-                        ),
-                      ),
-                    ),
-                    Expanded(
-                      child: Container(
-                        margin: EdgeInsets.only(left: 8),
-                        padding: EdgeInsets.only(left: 16),
-                        height: 64,
-                        decoration: BoxDecoration(
-                          color: Color.fromRGBO(187, 198, 230, 1),
-                          borderRadius: BorderRadius.circular(12),
-                          border: Border.all(color: Colors.black, width: 1),
-                        ),
-                        child: Row(
-                          children: <Widget>[
-                            Image.asset(
-                              'assets/images/bobaa.jpeg',
-                              height: 60,
-                              width: 80,
-                            ),
-                            Padding(
-                              padding: EdgeInsets.only(left: 16),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: <Widget>[
-                                  Text(
-                                    'StreetBoba',
-                                    style: TextStyle(fontSize: 18, 
-                                    fontWeight:FontWeight.bold, 
-                                    color: yukInvestAppBarColor
-                                    )
-                                  ),
-                                  Text(
-                                    'Plaza Senayan',
-                                    style: TextStyle(fontSize: 12, 
-                                    color: Colors.black,
-                                    )                                    
-                                  )
-                                ],
-                              ),
-                            )
-                          ],
-                        ),
-                      ),
-                    )
-                  ],
-                ),
-                SizedBox(
-                  height: 16,
-                ),
-                Row(
-                  children: <Widget>[
-                    Expanded(
-                      child: Container(
-                        margin: EdgeInsets.only(right: 8),
-                        padding: EdgeInsets.only(left: 16),
-                        height: 64,
-                        decoration: BoxDecoration(
-                          color: Color.fromRGBO(187, 198, 230, 1),
-                          borderRadius: BorderRadius.circular(12),
-                          border: Border.all(color: Colors.black, width: 1),
-                        ),
-                        child: Row(
-                          children: <Widget>[
-                            Image.asset(
-                              'assets/images/bobaa.jpeg',
-                              height: 60,
-                              width: 80,
-                            ),
-                            Padding(
-                              padding: EdgeInsets.only(left: 16),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: <Widget>[
-                                  Text(
-                                    'StreetBoba',
-                                    style: TextStyle(fontSize: 18, 
-                                    fontWeight:FontWeight.bold, 
-                                    color: yukInvestAppBarColor
-                                    )
-                                  ),
-                                  Text(
-                                    'Gandaria City',
-                                    style: TextStyle(fontSize: 12, 
-                                    color: Colors.black,
-                                    )
-                                  )
-                                ],
-                              ),
-                            )
-                          ],
-                        ),
-                      ),
-                    ),
-                    Expanded(
-                        child: Container(
-                          margin: EdgeInsets.only(left: 8),
-                          padding: EdgeInsets.only(left: 16),
-                          height: 64,
-                          decoration: BoxDecoration(
-                            color: Color.fromRGBO(187, 198, 230, 1),
-                            borderRadius: BorderRadius.circular(12),
-                            border: Border.all(color: Colors.black, width: 1),
-                          ),
-                          child: Row(
-                            children: <Widget>[
-                              Image.asset(
-                                'assets/images/bobaa.jpeg',
-                                height: 60,
-                                width: 80,
-                              ),
-                              Padding(
-                                padding: EdgeInsets.only(left: 16),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: <Widget>[
-                                    Text(
-                                      'StreetBoba',
-                                      style: TextStyle(fontSize: 18, 
-                                      fontWeight:FontWeight.bold, 
-                                      color: yukInvestAppBarColor
-                                      )
-                                    ),
-                                    Text(
-                                      'Plaza Indonesia',
-                                      style: TextStyle(fontSize: 12, 
-                                        color: Colors.black,
-                                        )
-                                    )
-                                  ],
-                                ),
-                              )
-                            ],
-                          ),
-                        ),
-                      )
-                  ],
-                ),
-              ],
-            ),
-          ),
-          SizedBox(
-                  height: 16,
-                ),
-          Center(
-            child: Text(
-            "Investasi UMKM",
-            style: TextStyle(fontSize: 18, 
-                      fontWeight:FontWeight.bold, 
-                      color: Color.fromRGBO(20, 39, 155, 1),
-            )
-          ),
-          ),
-          Container(
-            margin: EdgeInsets.symmetric(vertical: 20),
-            padding: EdgeInsets.all(10),
-            height: 80,
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(13),
-              boxShadow: [
-                BoxShadow(
-                  offset: Offset(0, 17),
-                  blurRadius: 23,
-                  spreadRadius: -13,
-                  color: Colors.black,
-                ),
-              ],
-            ),
-            child: Row(
-              children: <Widget>[
-                Image.asset(
-                  'assets/images/investasi.png',
-                  height: 60,
-                  width: 80,
-                ),
-                SizedBox(width: 20),
-                Expanded(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      TextButton(
-                        style: ButtonStyle(
-                          foregroundColor:
-                              MaterialStateProperty.all<Color>(Colors.black),
-                        ),
-                        onPressed: () {
-                          Navigator.push(context,
-                              MaterialPageRoute(builder: (context) {
-                            return MyApp() ;
-                          }));
-                        },
-                        child: Text('Lihat Investasi UMKM'),
-                      ),
-                      // Text(
-                      //   "Lihat Investasi UMKM",
-                      //   style: TextStyle(fontSize: 14, 
-                      //     color: Colors.black,
-                      //     )
-                        
-                      // ),
-                      Text(
-                        "Lihat daftar investasi bisnis yang sedang berlangsung dan temukan peluang untuk berinvestasi hari ini.",
-                        style: TextStyle(fontSize: 10, 
-                          color: Colors.black,
-                          ))
-                    ],
-                  ),
-                ),
-              ],
-            ),
-          ),
-          Center(
-            child: Text(
-            "Daftar UMKM",
-            style: TextStyle(fontSize: 18, 
-                      fontWeight:FontWeight.bold, 
-                      color: Color.fromRGBO(20, 39, 155, 1),
-            )
-          ),
-          ),
-          Container(
-            margin: EdgeInsets.symmetric(vertical: 20),
-            padding: EdgeInsets.all(10),
-            height: 80,
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(13),
-              boxShadow: [
-                BoxShadow(
-                  offset: Offset(0, 17),
-                  blurRadius: 23,
-                  spreadRadius: -13,
-                  color: Colors.black,
-                ),
-              ],
-            ),
-            child: Row(
-              children: <Widget>[
-                Image.asset(
-                  'assets/images/investasi.png',
-                  height: 60,
-                  width: 80,
-                ),
-                SizedBox(width: 20),
-                Expanded(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      TextButton(
-                        style: ButtonStyle(
-                          foregroundColor:
-                              MaterialStateProperty.all<Color>(Colors.black),
-                        ),
-                        onPressed: () {
-                          Navigator.push(context,
-                              MaterialPageRoute(builder: (context) {
-                            return MyApp() ;
-                          }));
-                        },
-                        child: Text('Lihat Daftar UMKM'),
-                      ),
-                      // Text(
-                      //   "Lihat Daftar UMKM",
-                      //   style: TextStyle(fontSize: 14, 
-                      //     color: Colors.black,
-                      //     ),
-                      //   onTap: () {
-                      //     Navigator.push(context,
-                      //         MaterialPageRoute(builder: (context) {
-                      //       return Sesuai();
-                      //     }));
-                      //   },
-                      // ),
-                      Text(
-                        "Tentukan pilihan bisnis-bisnis yang sesuai dengan keinginan Anda!",
-                        style: TextStyle(fontSize: 10, 
-                          color: Colors.black,
-                          )
-                      )
-                    ],
-                  ),
-                ),
-              ],
-            ),
-          ),
-          TextButton(
-                  style: ButtonStyle(
-                    foregroundColor:
-                        MaterialStateProperty.all<Color>(Colors.blue),
-                  ),
-                  onPressed: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) {
-                      return MyApp() ;
-                    }));
-                  },
-                  child: Text('Leave Us Feedback'),
-                ),
-            TextButton(
-                  style: ButtonStyle(
-                    foregroundColor:
-                        MaterialStateProperty.all<Color>(Colors.blue),
-                  ),
-                  onPressed: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) {
-                      return MyFeedbackPage();
-                    }));
-                  },
-                  child: Text('See feedbacks'),
-                ),
-        ],
-      ),
-    ),
-  );
 }
+<<<<<<< HEAD
 
 
 
@@ -604,3 +204,5 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 }
 >>>>>>> efcf1a01899f4411fb806fd5ff303e9911da5b5e
+=======
+>>>>>>> e267f34b0ea080d980551a8efb16bf36eb581dc8

@@ -5,12 +5,13 @@ import 'dart:convert';
 
 
 class MyFeedbackPage extends StatefulWidget {
-  MyFeedbackPage();
+  // ignore: use_key_in_widget_constructors
+  const MyFeedbackPage();
 
   // final String title;
 
   @override
-  _MyFeedbackPageState createState() => new _MyFeedbackPageState();
+  _MyFeedbackPageState createState() => _MyFeedbackPageState();
 }
 
 class _MyFeedbackPageState extends State<MyFeedbackPage> {
@@ -47,35 +48,31 @@ class _MyFeedbackPageState extends State<MyFeedbackPage> {
 
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
-      appBar: new AppBar(
-        title: new Text("Feedbacks"),
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("Feedbacks"),
       ),
-      body: Container(
-          child: FutureBuilder(
-            future: _getFeedbacks(),
-            builder: (BuildContext context, AsyncSnapshot snapshot){
-              print(snapshot.data);
-              if(snapshot.data == null){
-                return Container(
-                  child: Center(
-                    child: Text("Loading...")
-                  )
+      body: FutureBuilder(
+        future: _getFeedbacks(),
+        builder: (BuildContext context, AsyncSnapshot snapshot){
+          // print(snapshot.data);
+          if(snapshot.data == null){
+            return const Center(
+              child: Text("Loading...")
+            );
+          } else {
+            return ListView.builder(
+              itemCount: snapshot.data.length,
+              itemBuilder: (BuildContext context, int id) {
+                return ListTile(
+                  title: Text(snapshot.data[id].pengirim +" rated "+ snapshot.data[id].ratings+" stars" ),
+                  subtitle: Text("feedback : "+snapshot.data[id].message),
                 );
-              } else {
-                return ListView.builder(
-                  itemCount: snapshot.data.length,
-                  itemBuilder: (BuildContext context, int id) {
-                    return ListTile(
-                      title: Text(snapshot.data[id].pengirim +" rated "+ snapshot.data[id].ratings+" stars" ),
-                      subtitle: Text("feedback : "+snapshot.data[id].message),
-                    );
-                  },
-                );
-              }
-            },
-          ),
-        ),
+              },
+            );
+          }
+        },
+      ),
       );
   }
 }

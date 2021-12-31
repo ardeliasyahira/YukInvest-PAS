@@ -1,0 +1,28 @@
+// ignore: file_names
+import 'package:flutter/material.dart';
+
+class VerticalText extends StatefulWidget {
+  const VerticalText({Key? key}) : super(key: key);
+
+  @override
+  _VerticalTextState createState() => _VerticalTextState();
+}
+
+class _VerticalTextState extends State<VerticalText> {
+  @override
+  Widget build(BuildContext context) {
+    return const Padding(
+      padding: EdgeInsets.only(top: 60, left: 10),
+      child: RotatedBox(
+          quarterTurns: -1,
+          child: Text(
+            'Sign in',
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 38,
+              fontWeight: FontWeight.w900,
+            ),
+          )),
+    );
+  }
+}

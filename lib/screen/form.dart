@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:pase08/main.dart';
+import 'package:pase08/pages/homepage.dart';
 import 'package:pase08/screen/feedbacklist.dart';
 import 'package:pase08/screen/add_data.dart' ;
 
 
 class FormPage extends StatefulWidget {
   const FormPage({Key? key}) : super(key: key);
-  _FormState createState() => new _FormState();
+  @override
+  _FormState createState() => _FormState();
 }
 
 class _FormState extends State<FormPage> {
@@ -28,16 +29,16 @@ class _FormState extends State<FormPage> {
     return Scaffold(
       backgroundColor: const Color(0xFFFFFFFF),
       body: Container(
-          padding: new EdgeInsets.all(15.0),
-          child: new Column(
+          padding: const EdgeInsets.all(15.0),
+          child: Column(
             children: <Widget>[
-              new Padding(padding: new EdgeInsets.only(top: 40.0)),
-              Text("Feedback",
+              const Padding(padding: EdgeInsets.only(top: 40.0)),
+              const Text("Feedback",
                   style: TextStyle(
                       color: Colors.black,
                       fontSize: 24.0,
                       fontWeight: FontWeight.bold)),
-              new Padding(padding: new EdgeInsets.only(top: 20.0)),
+              const Padding(padding: EdgeInsets.only(top: 20.0)),
               // new TextField(
               //     decoration: new InputDecoration(
               //         hintText: "Nama Pengirim",
@@ -52,7 +53,7 @@ class _FormState extends State<FormPage> {
                   return "Please write your name";
                 }
                 pengirim = value!;
-                decoration: const InputDecoration(
+                const InputDecoration(
                   hintText: "Sender name",
                 );
               }),
@@ -72,13 +73,13 @@ class _FormState extends State<FormPage> {
                 ),
               ),
 
-              new Padding(padding: new EdgeInsets.only(top: 20.0)),
-              new Row(
-                children: <Widget>[
-                  new Text("Berikan rating untuk aplikasi ini")
+              const Padding(padding: EdgeInsets.only(top: 20.0)),
+              Row(
+                children: const <Widget>[
+                  Text("Berikan rating untuk aplikasi ini")
                 ],
               ),
-              new DropdownButton<String>(
+              DropdownButton<String>(
                 value: _ratings,
                 icon: const Icon(Icons.arrow_downward),
                 elevation: 16,
@@ -101,7 +102,7 @@ class _FormState extends State<FormPage> {
                   );
                 }).toList(),
               ),
-              new Padding(padding: new EdgeInsets.only(top: 40.0)),
+              const Padding(padding: EdgeInsets.only(top: 40.0)),
               ElevatedButton(
                 onPressed: () {
                   if (formKey.currentState?.validate() ?? false) {
@@ -114,7 +115,7 @@ class _FormState extends State<FormPage> {
                         ))));
                     Navigator.push(context,
                         MaterialPageRoute(builder: (context) {
-                      return MyHomePage();
+                      return const MyHomePage();
                     }));
                   }
                 },
@@ -138,10 +139,10 @@ class _FormState extends State<FormPage> {
                 ),
                 onPressed: () {
                   Navigator.push(context, MaterialPageRoute(builder: (context) {
-                    return MyHomePage();
+                    return const MyHomePage();
                   }));
                 },
-                child: Text('Back'),
+                child: const Text('Back'),
               )
             ],
           )),
