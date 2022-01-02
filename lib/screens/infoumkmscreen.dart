@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../widgets/infoumkm.dart';
+import '../models/umkm.dart';
 
 class InfoUmkmScreen extends StatefulWidget {
   static const routeName = '/info-umkm';
@@ -14,7 +15,7 @@ class InfoUmkmScreen extends StatefulWidget {
 }
 
 class _InfoUmkmScreenState extends State<InfoUmkmScreen> {
-  String categoryTitle;
+  String umkmTitle;
   List<Umkm> displayedUmkm;
   var _loadedInitData = false;
 
@@ -28,11 +29,11 @@ class _InfoUmkmScreenState extends State<InfoUmkmScreen> {
   void didChangeDependencies() {
     if (!_loadedInitData) {
       final routeArgs =
-          ModalRoute.of(context).settings.arguments as Map<String, String>;
-      categoryTitle = routeArgs['title'];
-      final merekbisnisId = routeArgs['merek_bisnis'];
+          ModalRoute.of(context)!.settings.arguments as Map<String, String>;
+      umkmTitle = routeArgs['title']!;
+      final umkmId = routeArgs['id'];
       displayedUmkm = widget.availableUmkm.where((umkm) {
-        return umkm.merek_bisnis.contains(merekbisnisId);
+        return umkm.merekBisnis!.contains(umkmId!);
       }).toList();
       _loadedInitData = true;
     }
@@ -41,7 +42,7 @@ class _InfoUmkmScreenState extends State<InfoUmkmScreen> {
 
   void _removeUmkm(String umkmId) {
     setState(() {
-      displayedUmkm.removeWhere((umkm) => umkm.merek_bisnis == umkmId);
+      displayedUmkm.removeWhere((umkm) => umkm.id == umkmId);
     });
   }
 
@@ -49,18 +50,21 @@ class _InfoUmkmScreenState extends State<InfoUmkmScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(categoryTitle),
+        title: Text(umkmTitle),
       ),
       body: ListView.builder(
         itemBuilder: (ctx, index) {
-          return UmkmItem(
-            merek_bisnis: displayedUmkm[index].merek_bisnis,
-            deskripsi: displayedUmkm[index].deskripsi,
-            produk_jasa: displayedUmkm[index].produk_jasa,
+          return UmkmItemCard(
+            id: displayedUmkm[index].id,
+            merekBisnis: displayedUmkm[index].merekBisnis,
             domisili: displayedUmkm[index].domisili,
-            saham_umkm: displayedUmkm[index].saham_umkm,
-            pendanaan_dibutuhkan: displayedUmkm[index].pendanaan_dibutuhkan,
-            logo_usaha_url: displayedUmkm[index].logo_usaha_url,
+            produkJasa: displayedUmkm[index].produkJasa,
+            pendanaanDibutuhkan: displayedUmkm[index].pendanaanDibutuhkan,
+            sahamUmkm: displayedUmkm[index].sahamUmkm,
+            deskripsi: displayedUmkm[index].deskripsi,
+            logoUsaha: displayedUmkm[index].logoUsaha,
+            gambarUsaha: displayedUmkm[index].gambarUsaha,
+            ringkasanPerusahaan: displayedUmkm[index].ringkasanPerusahaan,
           );
         },
         itemCount: displayedUmkm.length,

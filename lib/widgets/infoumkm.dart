@@ -1,35 +1,38 @@
 import 'package:flutter/material.dart';
 
 import '../screens/infoumkmdetail.dart';
+import '../models/umkm.dart';
 // Blm import models !!!
 
 class UmkmItemCard extends StatelessWidget {
-  // final String id;
-  final String merek_bisnis;
-  final String deskripsi;
-  final String produk_jasa;
-  final String domisili;
-  final String saham_umkm;
-  final String pendanaan_dibutuhkan;
-  final String logo_usaha_url;
+  final int? id;
+  final String? merekBisnis;
+  final String? domisili;
+  final String? produkJasa;
+  final int? pendanaanDibutuhkan;
+  final int? sahamUmkm;
+  final String? deskripsi;
+  final String? logoUsaha;
+  final String? gambarUsaha;
+  final String? ringkasanPerusahaan;
 
   UmkmItemCard(
-    {
-      @required this.merek_bisnis,
-      @required this.deskripsi,
-      @required this.produk_jasa,
+      {@required this.id,
+      @required this.merekBisnis,
       @required this.domisili,
-      @required this.saham_umkm,
-      @required this.pendanaan_dibutuhkan,
-      @required this.logo_usaha_url
-    }
-  );
+      @required this.produkJasa,
+      @required this.pendanaanDibutuhkan,
+      @required this.sahamUmkm,
+      @required this.deskripsi,
+      @required this.logoUsaha,
+      @required this.gambarUsaha,
+      @required this.ringkasanPerusahaan});
 
   void selectUmkm(BuildContext context) {
     Navigator.of(context)
         .pushNamed(
       UmkmDetailScreen.routeName,
-      arguments: merek_bisnis,
+      arguments: id,
     )
         .then((result) {
       if (result != null) {
@@ -40,7 +43,7 @@ class UmkmItemCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell (
+    return InkWell(
       onTap: () => selectUmkm(context),
       child: Card(
         clipBehavior: Clip.antiAlias,
@@ -63,7 +66,7 @@ class UmkmItemCard extends StatelessWidget {
                   right: 16,
                   left: 16,
                   child: Text(
-                    '$merek_bisnis',
+                    '$merekBisnis',
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       color: Colors.white,

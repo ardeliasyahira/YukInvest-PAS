@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../dummy_data.dart';
+
 class UmkmDetailScreen extends StatelessWidget {
   static const routeName = '/umkm-detail';
 
@@ -30,11 +32,11 @@ class UmkmDetailScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final umkmId = ModalRoute.of(context).settings.arguments as String;
-    final selectedUmkm = DUMMY_UMKM.firstWhere((umkm) => umkm.merek_bisnis == umkmId);
+    final umkmId = ModalRoute.of(context)!.settings.arguments as String;
+    final selectedUmkm = DUMMY_UMKM.firstWhere((umkm) => umkm.id == umkmId);
     return Scaffold(
       appBar: AppBar(
-        title: Text('${selectedUmkm.merek_bisnis}'),
+        title: Text('${selectedUmkm.merekBisnis}'),
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -43,7 +45,7 @@ class UmkmDetailScreen extends StatelessWidget {
               height: 300,
               width: double.infinity,
               child: Image.network(
-                selectedUmkm.logo_usaha_url,
+                'https://socialistmodernism.com/wp-content/uploads/2017/07/placeholder-image.png',
                 fit: BoxFit.cover,
               ),
             ),
@@ -51,56 +53,56 @@ class UmkmDetailScreen extends StatelessWidget {
             buildContainer(
               ListView.builder(
                 itemBuilder: (ctx, index) => Card(
-                      // color: Theme.of(context).accentColor,
-                      child: Padding(
-                          padding: EdgeInsets.symmetric(
-                            vertical: 5,
-                            horizontal: 10,
-                          ),
-                          child: Text(selectedUmkm.merek_bisnis)),
-                    ),
+                  // color: Theme.of(context).accentColor,
+                  child: Padding(
+                      padding: EdgeInsets.symmetric(
+                        vertical: 5,
+                        horizontal: 10,
+                      ),
+                      child: Text(selectedUmkm.merekBisnis.toString())),
+                ),
               ),
             ),
             buildSectionTitle(context, 'Produk Jasa'),
             buildContainer(
               ListView.builder(
                 itemBuilder: (ctx, index) => Card(
-                      // color: Theme.of(context).accentColor,
-                      child: Padding(
-                          padding: EdgeInsets.symmetric(
-                            vertical: 5,
-                            horizontal: 10,
-                          ),
-                          child: Text(selectedUmkm.produk_jasa)),
-                    ),
+                  // color: Theme.of(context).accentColor,
+                  child: Padding(
+                      padding: EdgeInsets.symmetric(
+                        vertical: 5,
+                        horizontal: 10,
+                      ),
+                      child: Text(selectedUmkm.produkJasa.toString())),
+                ),
               ),
             ),
             buildSectionTitle(context, 'Deskripsi UMKM'),
             buildContainer(
               ListView.builder(
                 itemBuilder: (ctx, index) => Card(
-                      // color: Theme.of(context).accentColor,
-                      child: Padding(
-                          padding: EdgeInsets.symmetric(
-                            vertical: 5,
-                            horizontal: 10,
-                          ),
-                          child: Text(selectedUmkm.deskripsi)),
-                    ),
+                  // color: Theme.of(context).accentColor,
+                  child: Padding(
+                      padding: EdgeInsets.symmetric(
+                        vertical: 5,
+                        horizontal: 10,
+                      ),
+                      child: Text(selectedUmkm.deskripsi.toString())),
+                ),
               ),
             ),
             buildSectionTitle(context, 'Lokasi'),
             buildContainer(
               ListView.builder(
                 itemBuilder: (ctx, index) => Card(
-                      // color: Theme.of(context).accentColor,
-                      child: Padding(
-                          padding: EdgeInsets.symmetric(
-                            vertical: 5,
-                            horizontal: 10,
-                          ),
-                          child: Text(selectedUmkm.domisili)),
-                    ),
+                  // color: Theme.of(context).accentColor,
+                  child: Padding(
+                      padding: EdgeInsets.symmetric(
+                        vertical: 5,
+                        horizontal: 10,
+                      ),
+                      child: Text(selectedUmkm.domisili.toString())),
+                ),
               ),
             ),
             buildSectionTitle(context, 'Saham UMKM'),
@@ -113,7 +115,7 @@ class UmkmDetailScreen extends StatelessWidget {
                         vertical: 5,
                         horizontal: 10,
                       ),
-                      child: Text(selectedUmkm.saham_umkm)),
+                      child: Text(selectedUmkm.sahamUmkm.toString())),
                 ),
               ),
             ),
@@ -127,7 +129,7 @@ class UmkmDetailScreen extends StatelessWidget {
                         vertical: 5,
                         horizontal: 10,
                       ),
-                      child: Text(selectedUmkm.pendanaan_dibutuhkan)),
+                      child: Text(selectedUmkm.pendanaanDibutuhkan.toString())),
                 ),
               ),
             ),
