@@ -1,16 +1,16 @@
+// ignore_for_file: prefer_const_declarations, use_key_in_widget_constructors, prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:pase08/main.dart';
 import 'package:pase08/pages/homepage.dart';
 import 'package:pase08/pages/pasar_saham.dart';
+import 'package:pase08/screen/infoumkmscreen.dart';
+import 'package:pendanaan/screens/view_pendanaan.dart';
 import 'package:provider/provider.dart';
 import 'package:pase08/common/network_service.dart';
 
 class NavigationDrawerWidget extends StatelessWidget {
-  final padding = const EdgeInsets.symmetric(horizontal: 20);
-
-  const NavigationDrawerWidget({Key? key}) : super(key: key);
-
-  BuildContext? get context => null;
+  final padding = EdgeInsets.symmetric(horizontal: 20);
 
   @override
   Widget build(BuildContext context) {
@@ -37,25 +37,18 @@ class NavigationDrawerWidget extends StatelessWidget {
             buildMenuItem(
               text: 'Daftar UMKM',
               icon: Icons.store,
-              // onClicked: () => {
-              //   Navigator.pushReplacement(
-              //     context, 
-              //     MaterialPageRoute(
-              //       builder: (context) => const Sesuatu()));
-              // }
+              onClicked: () => Navigator.pushNamed(context, InfoUmkmScreen.routeName),
             ),
             const SizedBox(height: 16),
             buildMenuItem(
-              text: 'Pendanaan',
-              icon: Icons.money_rounded,
-              // onClicked: () => {
-              //   Navigator.pushReplacement(
-              //     context, 
-              //     MaterialPageRoute(
-              //       builder: (context) => const Sesuatu()));
-              // }
-              
-            ),
+                text: 'Pendanaan',
+                icon: Icons.money_rounded,
+                onClicked: () => {
+                      Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const PendanaanHomePage()))
+                    }),
             // Section Divider
             const SizedBox(height: 24),
             const Divider(color: yukInvestAppBarColor),

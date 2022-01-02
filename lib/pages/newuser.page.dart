@@ -1,9 +1,11 @@
+// ignore_for_file: constant_identifier_names
+
 import 'dart:convert' as convert;
 import 'package:flutter/material.dart';
 import 'package:pase08/pages/login.page.dart';
 import 'package:pase08/widget/signup.dart';
-import 'package:pase08/widget/textNew.dart';
-import 'package:pase08/loginWidget/userOld.dart';
+import 'package:pase08/widget/text_new.dart';
+import 'package:pase08/loginWidget/user_old.dart';
 import 'package:pase08/common/network_service.dart';
 // ignore: implementation_imports
 import 'package:provider/src/provider.dart';
@@ -46,7 +48,7 @@ class _NewUserState extends State<NewUser> {
                   Padding(
                     padding:
                         const EdgeInsets.only(top: 50, left: 50, right: 50),
-                    child: Container(
+                    child: SizedBox(
                       height: 60,
                       width: MediaQuery.of(context).size.width,
                       child: TextFormField(
@@ -84,7 +86,7 @@ class _NewUserState extends State<NewUser> {
                   Padding(
                     padding:
                         const EdgeInsets.only(top: 20, left: 50, right: 50),
-                    child: Container(
+                    child: SizedBox(
                       height: 60,
                       width: MediaQuery.of(context).size.width,
                       child: TextFormField(

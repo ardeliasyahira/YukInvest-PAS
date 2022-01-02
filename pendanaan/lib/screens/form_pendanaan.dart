@@ -23,9 +23,9 @@ class _PendanaanHomePageState extends State<AddUMKMPage> {
   String _sahamUMKM = "";
   int _pendanaanDibutuhkan = 0;
   String _deskripsi = "";
-  File _logoUsaha = File('assets/images/about.jpg');
-  File _gambarUsaha = File('assets/images/about.jpg');
-  File _ringkasanPerusahaan = File('assets/images/about.jpg');
+  final File _logoUsaha = File('assets/images/about.jpg');
+  final File _gambarUsaha = File('assets/images/about.jpg');
+  final File _ringkasanPerusahaan = File('assets/images/about.jpg');
   final bool _status = false;
 
   @override

@@ -1,8 +1,10 @@
+// ignore_for_file: constant_identifier_names, sized_box_for_whitespace
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:pase08/common/network_service.dart';
-import 'package:pase08/loginWidget/textLogin.dart';
-import 'package:pase08/loginWidget/verticalText.dart';
+import 'package:pase08/loginWidget/text_login.dart';
+import 'package:pase08/loginWidget/vertical_text.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);

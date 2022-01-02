@@ -14,7 +14,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _current = 0;
 
   List<T> map<T>(List list, Function handler) {
     List<T> result = [];
@@ -26,7 +25,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) => Scaffold(
-        drawer: const NavigationDrawerWidget(),
+        drawer: NavigationDrawerWidget(),
         appBar: AppBar(
           title: const Text('Yuk Invest!'),
           elevation: 0,
@@ -44,7 +43,6 @@ class _MyHomePageState extends State<MyHomePage> {
               child: Swiper(
                 onIndexChanged: (index) {
                   setState(() {
-                    _current = index;
                   });
                 },
                 autoplay: true,
@@ -319,7 +317,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           onPressed: () {
                             Navigator.push(context,
                                 MaterialPageRoute(builder: (context) {
-                              return const MyApp();
+                              return MyApp();
                             }));
                           },
                           child: const Text('Lihat Investasi UMKM'),
@@ -388,7 +386,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           onPressed: () {
                             Navigator.push(context,
                                 MaterialPageRoute(builder: (context) {
-                              return const MyApp();
+                              return MyApp();
                             }));
                           },
                           child: const Text('Lihat Daftar UMKM'),
@@ -423,7 +421,7 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
               onPressed: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  return const MyApp();
+                  return MyApp();
                 }));
               },
               child: const Text('Leave Us Feedback'),
