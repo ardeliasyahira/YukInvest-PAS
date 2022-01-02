@@ -1,5 +1,5 @@
 // ignore_for_file: unnecessary_new, prefer_collection_literals, unnecessary_this
-
+import 'package:flutter/foundation.dart';
 import 'dart:core';
 
 class Umkm {
@@ -14,19 +14,19 @@ class Umkm {
   String? gambarUsaha;
   String? ringkasanPerusahaan;
 
-  Umkm(
-      {this.id,
-      this.merekBisnis,
-      this.domisili,
-      this.produkJasa,
-      this.pendanaanDibutuhkan,
-      this.sahamUmkm,
-      this.deskripsi,
-      this.logoUsaha,
-      this.gambarUsaha,
-      this.ringkasanPerusahaan});
+  Umkm({
+      @required this.id,
+      @required this.merekBisnis,
+      @required this.domisili,
+      @required this.produkJasa,
+      @required this.pendanaanDibutuhkan,
+      @required this.sahamUmkm,
+      @required this.deskripsi,
+      @required this.logoUsaha,
+      @required this.gambarUsaha,
+      @required this.ringkasanPerusahaan});
 
-  Umkm.fromJson(Map<String, dynamic> json) {
+  Umkm.fromJson(Map<String, dynamic> json, this.id, this.merekBisnis, this.domisili, this.produkJasa, this.pendanaanDibutuhkan, this.sahamUmkm, this.deskripsi, this.logoUsaha, this.gambarUsaha, this.ringkasanPerusahaan) {
     id = json['id'];
     merekBisnis = json['merek_bisnis'];
     domisili = json['domisili'];

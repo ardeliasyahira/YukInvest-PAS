@@ -1,5 +1,6 @@
 // ignore_for_file: import_of_legacy_library_into_null_safe, use_key_in_widget_constructors, prefer_const_constructors
 
+import 'package:pase08/dummy_data.dart';
 import 'package:pase08/models/umkm.dart';
 import 'package:pase08/pages/admin.page.dart';
 import 'package:pase08/pages/homepage.dart';
@@ -37,7 +38,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    List<Umkm>? availableUmkm;
+    List<Umkm> _availableUmkm = DUMMY_UMKM;
     return Provider(
         create: (_) {
           NetworkService request = NetworkService();
@@ -67,7 +68,7 @@ class MyApp extends StatelessWidget {
             "/adminpage": (BuildContext context) => const AdminPage(),
             "/pasarSaham": (BuildContext context) => const PasarSaham(),
             "/pendanaan": (BuildContext context) => const PendanaanHomePage(),
-            "/info-umkm": (BuildContext context) => InfoUmkmScreen(availableUmkm),
+            "/info-umkm": (BuildContext context) => InfoUmkmScreen(_availableUmkm),
             "/umkm-detail": (BuildContext context) => const UmkmDetailScreen(),
           },
 

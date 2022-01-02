@@ -8,7 +8,7 @@ import '../models/umkm.dart';
 class InfoUmkmScreen extends StatefulWidget {
   static const routeName = '/info-umkm';
 
-  final List<Umkm>? availableUmkm;
+  final List<Umkm> availableUmkm;
 
   InfoUmkmScreen(this.availableUmkm);
 
@@ -34,8 +34,8 @@ class _InfoUmkmScreenState extends State<InfoUmkmScreen> {
           ModalRoute.of(context)!.settings.arguments as Map<String, String>;
       umkmTitle = routeArgs['title']!;
       final umkmId = routeArgs['id'];
-      displayedUmkm = widget.availableUmkm!.where((umkm) {
-        return umkm.merekBisnis!.contains(umkmId!);
+      displayedUmkm = widget.availableUmkm.where((umkm) {
+        return umkm.id.toString().contains(umkmId!);
       }).toList();
       _loadedInitData = true;
     }
