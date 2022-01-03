@@ -1,6 +1,10 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:flutter/material.dart';
 
 class ButtonNewUser extends StatefulWidget {
+  const ButtonNewUser({Key? key}) : super(key: key);
+
   @override
   _ButtonNewUserState createState() => _ButtonNewUserState();
 }
@@ -15,7 +19,7 @@ class _ButtonNewUserState extends State<ButtonNewUser> {
         height: 50,
         width: MediaQuery.of(context).size.width,
         decoration: BoxDecoration(
-          boxShadow: [
+          boxShadow: const [
             BoxShadow(
               color: Colors.blue,
               blurRadius: 10.0, // has the effect of softening the shadow
@@ -33,7 +37,7 @@ class _ButtonNewUserState extends State<ButtonNewUser> {
           },
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
+            children: const <Widget>[
               Text(
                 'OK',
                 style: TextStyle(

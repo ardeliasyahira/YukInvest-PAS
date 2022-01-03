@@ -12,7 +12,7 @@ class _TextNewState extends State<TextNew> {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(top: 30.0, left: 10.0),
-      child: Container(
+      child: SizedBox(
         //color: Colors.green,
         height: 200,
         width: 200,

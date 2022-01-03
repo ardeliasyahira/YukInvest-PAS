@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors, unused_import, implementation_imports, unnecessary_new, constant_identifier_names, must_be_immutable
+
 import 'dart:convert';
 import 'dart:typed_data';
 
